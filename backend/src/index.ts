@@ -9,4 +9,4 @@ app.use(cors());
 app.get("/test", async (req: Request, res: Response) => {
   res.json({ message: `Hello World` });
 });
-app.listen(1222, () => console.log(`Server is running at port 1222`));
+app.listen(8000, () => console.log(`Server is running at port 1222`));
