@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
+import myUserRoute from "./routes/myUserRoute";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -15,7 +16,9 @@ console.log(
   process.env.MONGODB_CONNECTION_STRING ? "string found" : "string MISSING",
 );
 // we will get an error for the REquest and Response so we have to add it seperately in express
-app.get("/test", async (req: Request, res: Response) => {
-  res.json({ message: `Hello World` });
-});
-app.listen(8000, () => console.log(`Server is running at port 8000`));
+// app.get("/test", async (req: Request, res: Response) => {
+//   res.json({ message: `Hello World` });
+// });
+
+app.use("/api/my/user", myUserRoute);
+app.listen(7000, () => console.log(`Server is running at port 8000`));
